@@ -10,7 +10,7 @@ This library provides a small interface for outputting JSON reports from your Ma
 <dependency>
     <groupId>com.zackehh</groupId>
     <artifactId>json-output-format</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -92,9 +92,31 @@ Voila, nice to read output :)
 
 ### Customization
 
+#### Output
+
 By default, your files are written as `json_output-r-<id>.json`, in the traditional Hadoop format. You can customise the initial file name and extension by using the following configuration options:
 
 ```java
 conf.set("jof.ext", ".bak")         // defaults to ".json"
 conf.set("jof.file", "my_filename") // defaults to "json_output"
+```
+
+#### Serialization
+
+You can also create your own `ObjectMapper` rather than using the default one in the case you wish to configure the JSON serialization features. For example, the below would use an `ObjectMapper` which indents your JSON report:
+
+```java
+public class IntegerJsonOutputFormat extends JsonOutputFormat<Text, IntWritable> {
+
+    /**
+     * Creates an ObjectMapper which allows for indentation.
+     */
+    @Override
+    protected ObjectMapper createMapper() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        return mapper;
+    }
+
+}
 ```

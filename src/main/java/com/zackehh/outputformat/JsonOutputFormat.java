@@ -28,7 +28,14 @@ abstract public class JsonOutputFormat<K, V> extends FileOutputFormat<K, V> {
     /**
      * An internal JSON mapper to use for JSON conversion.
      */
-    private static final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
+
+    /**
+     * Creates an ObjectMapper instance to be used when serializing JSON.
+     */
+    public JsonOutputFormat() {
+        this.mapper = createMapper();
+    }
 
     /**
      * Conversion callback for the key field. This callback accepts the input key
@@ -51,6 +58,17 @@ abstract public class JsonOutputFormat<K, V> extends FileOutputFormat<K, V> {
      */
     @SuppressWarnings("WeakerAccess")
     abstract protected JsonNode convertValue(V value);
+
+    /**
+     * Creates an ObjectMapper instance for use when serializing JSON. This
+     * defaults to simply using a default ObjectMapper.
+     *
+     * @return an ObjectMapper instance.
+     */
+    @SuppressWarnings("WeakerAccess")
+    protected ObjectMapper createMapper() {
+        return new ObjectMapper();
+    }
 
     /**
      * In the case that the field already exists inside the JSON object, you can
