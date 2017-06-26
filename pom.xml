@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zackehh</groupId>
+    <groupId>io.whitfin</groupId>
     <artifactId>json-output-format</artifactId>
     <version>1.0.1</version>
     <packaging>jar</packaging>
@@ -13,22 +13,20 @@
     <description>
         JSON output formats for Hadoop MapReduce jobs.
     </description>
-    <url>https://github.com/zackehh/json-output-format</url>
+    <url>https://github.com/whitfin/json-output-format</url>
 
     <developers>
         <developer>
-            <id>iwhitfield</id>
+            <id>whitfin</id>
             <name>Isaac Whitfield</name>
-            <email>iw@zackehh.com</email>
-            <organization>Appcelerator, Inc.</organization>
-            <organizationUrl>http://www.appcelerator.com</organizationUrl>
+            <email>isaac@whitfin.io</email>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:zackehh/json-output-format.git</connection>
-        <developerConnection>scm:git:git@github.com:zackehh/json-output-format.git</developerConnection>
-        <url>git@github.com:zackehh/json-output-format.git</url>
+        <connection>scm:git:git@github.com:whitfin/json-output-format.git</connection>
+        <developerConnection>scm:git:git@github.com:whitfin/json-output-format.git</developerConnection>
+        <url>git@github.com:whitfin/json-output-format.git</url>
     </scm>
 
     <licenses>
